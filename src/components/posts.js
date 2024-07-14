@@ -3,18 +3,18 @@ import React, { useEffect, useState } from 'react';
 
 function ApiPost() {
     const [data, setData] = useState([]);
-    const [error, setError] = useState(null);
-    const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
+    // const [loading, setLoading] = useState(true);
 
     const fetchPosts = async () => {
         try{
             const result = await axios.get("https://jsonplaceholder.typicode.com/posts")
             setData(result.data);
-            console.log(result.data)
+            // console.log(result.data)
         }catch(error) {
             // setData(error);
             console.log(error)
-            setError(error);
+            // setError(error);
         }
         finally{
             setLoading(false);
@@ -26,13 +26,13 @@ function ApiPost() {
        fetchPosts();
     }, [])
 
-    if(loading) {
-        return <div>Loading...</div>;
-    }
+    // if(loading) {
+    //     return <div>Loading...</div>;
+    // }
 
-    if(error) {
-        return <div>Error: {error.message}</div>;
-    }
+    // if(error) {
+    //     return <div>Error: {error.message}</div>;
+    // }
 
   return (
     <div>
